@@ -4,138 +4,39 @@
   <meta charset="UTF-8">
   <title>PD Setup Guideline</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #f9f9f9, #e9ecef);
-      padding: 20px;
-      text-align: center;
-    }
-
-    h2 {
-      color: #333;
-    }
-
-    .search-wrapper {
-      margin-bottom: 30px;
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      width: 300px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      padding: 10px 16px;
-      font-size: 14px;
-      border: none;
-      background-color: #dc3545;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-    }
-
-    .card {
-      position: relative;
-      display: none;
-      width: 400px;
-    }
-
-    .part-image {
-      width: 350px;
-      height: 350px;
-      object-fit: contain;
-      background-color: none;
-      border-radius: 16px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-      display: block;
-      margin: 0 auto;
-    }
-
-    .part-image:hover {
-      transform: scale(1.02);
-    }
-
-    .card-body {
-      margin-top: 12px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-      padding: 14px;
-    }
-
-    .card-body p {
-      margin: 6px 0;
-      font-size: 15px;
-      color: #444;
-    }
-
-    .card-body strong {
-      color: #111;
-    }
-
-    .info-box {
-      display: none;
-      position: absolute;
-      width: 250px;
-      background: #ffffff;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-      padding: 16px;
-      text-align: left;
-      z-index: 10;
-      font-size: 14px;
-    }
-
-    .card.active .info-box {
-      display: block;
-    }
-
-    .topic-3 { left: 420px; top: 0px; }
-    .topic-4 { left: 420px; top: 100px; }
-    .topic-5 { left: 420px; top: 200px; }
-    .topic-6 { right: 550px; top: 0; }
-
-    #notFound {
-      display: none;
-      color: #666;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-  </style>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="header-left">
+    <img src="images/" alt="Logo">
+    <span class="company-name">Thailand Co., Ltd.</span>
+  </div>
+
   <h2>Search Item</h2>
   <div class="search-wrapper">
-    <input type="text" id="searchInput" placeholder="พิมพ์เลข Part เช่น 1-0001">
-    <button id="clearBtn">ล้างการค้นหา</button>
+    <input type="text" id="searchInput" placeholder="Type part number | such as 1-0001">
+    <button id="clearBtn">Clear search</button>
   </div>
 
   <div class="gallery" id="gallery">
 
-    <!-- ชิ้นงาน 1 -->
+    <!-- Product 1 -->
     <div class="card" data-part="1-1000" ondblclick="toggleInfo(this, event)">
-      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
       <model-viewer id="model" 
                     src="models/t-90sm_main_battle_tank.glb"
-                    alt="โมเดลชิ้นงาน 1"
+                    alt="Model 1"
                     auto-rotate
                     camera-controls
                     style="width: 100%; height: 320px; background-color: transparent; border: none; box-shadow: none; border-radius: 0;">
       </model-viewer>
+
+      <!--<div class="zoom-wrapper">
+        <img src="images/" alt="1-1000" class="zoom-image" />
+      </div>-->
+
       <div class="info-box topic-3"><strong>Tooling NO.1:</strong> XXX</div>
       <div class="info-box topic-4"><strong>Tooling NO.2:</strong> XXX</div>
       <div class="info-box topic-5"><strong>Coolant Type:</strong> XXX</div>
@@ -149,17 +50,21 @@
       </div>
     </div>
     
-    <!-- ชิ้นงาน 2 -->
+    <!-- Product 2 -->
     <div class="card" data-part="1-1001" ondblclick="toggleInfo(this, event)">
-      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
       <model-viewer id="model" 
                     src="models/british_super_heavy_cruiser_leviathan.glb"
-                    alt="โมเดลชิ้นงาน 1"
+                    alt="Model 2"
                     auto-rotate
                     camera-controls
                     style="width: 100%; height: 320px; background-color: transparent; border: none; box-shadow: none; border-radius: 0;">
       </model-viewer>
+
+      <!--<div class="zoom-wrapper">
+        <img src="images/" alt="1-1001" class="zoom-image" />
+      </div>-->
+
       <div class="info-box topic-3"><strong>Tooling NO.1:</strong> XXX</div>
       <div class="info-box topic-4"><strong>Tooling NO.2:</strong> XXX</div>
       <div class="info-box topic-5"><strong>Coolant Type:</strong> XXX</div>
@@ -173,55 +78,9 @@
       </div>
     </div>
 
-  <div id="notFound">ไม่พบรายการที่ตรงกับ Part Number นี้</div>
+  <div id="notFound">Item not found</div>
 
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const clearBtn = document.getElementById('clearBtn');
-    const cards = document.querySelectorAll('.card');
-    const notFound = document.getElementById('notFound');
-  
-    function toggleInfo(card, event) {
-      const isClickOnImage = event.target.tagName === 'IMG' || event.target.tagName === 'MODEL-VIEWER';
-      if (!isClickOnImage) return;
-  
-      const isActive = card.classList.contains('active');
-      document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-  
-      if (!isActive) {
-        card.classList.add('active');
-      }
-    }
-  
-    function searchParts() {
-      const query = searchInput.value.trim();
-      let found = false;
-  
-      cards.forEach(card => {
-        const part = card.getAttribute('data-part');
-        card.classList.remove('active');
-  
-        if (query !== '' && part === query) {
-          card.style.display = 'inline-block';
-          found = true;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-  
-      notFound.style.display = (query !== '' && !found) ? 'block' : 'none';
-    }
-  
-    searchInput.addEventListener('input', searchParts);
-  
-    clearBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      notFound.style.display = 'none';
-      cards.forEach(card => {
-        card.style.display = 'none';
-        card.classList.remove('active');
-      });
-    });
-  </script>
-  </body>
-  </html>
+  <script src="script.js"></script>
+
+</body>
+</html>
