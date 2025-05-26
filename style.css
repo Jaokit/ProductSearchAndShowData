@@ -83,10 +83,11 @@ button {
   display: block;
 }
 
-.topic-3 { left: 420px; top: 0px; }
-.topic-4 { left: 420px; top: 100px; }
-.topic-5 { left: 420px; top: 200px; }
-.topic-6 { right: 550px; top: 0; }
+.topic-3 { left: 500px; top: 0px; }
+.topic-4 { left: 500px; top: 200px; }
+.topic-5 { left: 500px; top: 400px; }
+.topic-6 { right: 500px; top: 0px; }
+
 
 #notFound {
   display: none;
@@ -132,4 +133,16 @@ button {
   object-fit: contain;
   transform-origin: center center;
   cursor: grab;
+}
+
+.tooling-img {
+  display: block;
+  margin: 8px auto;
+  width: 200px;
+  height: 120px;
+  object-fit: contain;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
 }
